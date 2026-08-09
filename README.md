@@ -5,7 +5,7 @@ states how it was verified: probed over HTTP, checked on-chain, or actually paid
 transaction hash). Maintained by [ProofLines](https://prooflines.org/monad/); PRs welcome with
 the same evidence standard.
 
-Last sweep: 2026-08-09.
+Last sweep: 2026-08-09 (evening: Axil payability verified negative by source + on-chain review).
 
 ## Infrastructure (rails and facilitators)
 
@@ -23,7 +23,7 @@ Last sweep: 2026-08-09.
 | [ProofLines gate](https://prooflines.org/monad/x402-on-monad/) | Monad network concentration report | native MON, self-verified, testnet + mainnet | LIVE, PAID | first purchase tx [`0x372385ee...62ad3a`](https://testnet.monadexplorer.com/tx/0x372385ee8c03c6b93744cfa9a458dec45880ae653e0f60fb447f9bd65962ad3a) (testnet, block 51476148); replay protection verified live |
 | [glim.sh](https://glim.sh) | web/twitter/reddit/github data for agents | USDC on Monad MAINNET (`eip155:143`, asset `0x754704Bc...b603`), also Base + Solana | LIVE, rail confirmed | 402 probe returns a v2 `exact` offer for `eip155:143` at 0.01 USDC; payment test pending |
 | [PayGate](https://paygatex402.vercel.app/) | micro-paywall platform (escrow, per-byte metering) | native MON via `PayGateRouter` contract | app LIVE, contract DEPLOYED, no public demo proxy | router `0x8197f76762F5b2cfeCbdfc1B90FBBAC3FC29b17C` has code on testnet (3,418 bytes); paying requires creating a proxy first |
-| AxilProtocol | contract-based 402 with fee splits | native MON via contract | contract DEPLOYED, no hosted endpoint | `0xB3A59e559B470Ce9Edc1Ccf70B912F8A021a4552` has code on testnet (16,611 bytes); [GitHub](https://github.com/AxilProtocolV1/AxilProtocolV1) |
+| AxilProtocol | contract-based 402 with fee splits | native MON via contract | contract DEPLOYED, but NOT payable by outsiders | `0xB3A59e559B470Ce9Edc1Ccf70B912F8A021a4552` live on testnet, not paused, `totalExecutedIntents = 8`; source review 2026-08-09: `execute()` requires an EIP-712 signature from the protocol-configured `config.signerAddress`, and no public surface issues signed intents, so a buyer cannot pay without the operator; [GitHub](https://github.com/AxilProtocolV1/AxilProtocolV1) |
 
 ## Gone or dormant
 
