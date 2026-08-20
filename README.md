@@ -5,7 +5,18 @@ states how it was verified: probed over HTTP, checked on-chain, or actually paid
 transaction hash). Maintained by [ProofLines](https://prooflines.org/monad/); PRs welcome with
 the same evidence standard.
 
-Last sweep: 2026-08-09 (evening: Axil payability verified negative; glim.sh PAID over the mainnet USDC rail; our gate PAID on mainnet with real MON).
+Last sweep: 2026-08-20 (liveness sweep: all 73 distinct Monad-accepting hosts in the bazaar answered 402; cheapest Monad price observed 0.001 USDC). Earlier: 2026-08-09 (evening: Axil payability verified negative; glim.sh PAID over the mainnet USDC rail; our gate PAID on mainnet with real MON).
+
+## Machine-readable index
+
+This map has a live JSON counterpart for agents: **https://prooflines.org/monad/x402-discovery/resources**
+(rebuilt hourly, CDP-bazaar-compatible shape, full records at `/resources-full`). It carries the
+Monad-native sellers below plus every Monad-accepting resource mirrored from the CDP bazaar, each
+entry labelled with where it came from. Generator: [monad-x402-index](https://github.com/ColinkaMir/monad-x402-index).
+
+Why it exists: as of 2026-08-20 the CDP bazaar rejects Monad outright (`Network "eip155:143" is not
+supported`), goplausible's facilitator does not serve Monad, and molandak serves the rails but
+returns 404 on `/discovery/resources`. Monad-native sellers were invisible to agents by construction.
 
 ## Infrastructure (rails and facilitators)
 
